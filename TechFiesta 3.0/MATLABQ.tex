@@ -1,0 +1,245 @@
+\documentclass[12pt,paper=a4,answers]{exam}
+\usepackage{graphicx,lastpage}
+\usepackage{upgreek}
+\usepackage{censor}
+\usepackage{amsmath}
+\censorruledepth=-.2ex
+\censorruleheight=.1ex
+\hyphenpenalty 10000
+\usepackage[paperheight=10.5in,paperwidth=8.27in,bindingoffset=0in,left=0.8in,right=1in,
+top=0.7in,bottom=1in,headsep=.5\baselineskip]{geometry}
+\flushbottom
+\usepackage[normalem]{ulem}
+\renewcommand\ULthickness{2pt}   %%---> For changing thickness of underline
+\setlength\ULdepth{1.5ex}%\maxdimen ---> For changing depth of underline
+\renewcommand{\baselinestretch}{1}
+\pagestyle{empty}
+
+\pagestyle{headandfoot}
+\headrule
+\newcommand{\continuedmessage}{%
+\ifcontinuation{\footnotesize Question \ContinuedQuestion\ continues\ldots}{}%
+ }
+\runningheader{\footnotesize}
+{\footnotesize}
+{\footnotesize Page \thepage\ of \numpages}
+\footrule
+\footer{\footnotesize}
+{}
+{\ifincomplete{\footnotesize Question \IncompleteQuestion\ continues
+on the next page\ldots}{\iflastpage{\footnotesize End of exam}{\footnotesize Please go        on to the next page\ldots}}}
+
+\usepackage{cleveref}
+\crefname{figure}{figure}{figures}
+\crefname{question}{question}{questions}
+%==============================================================
+\begin{document}
+
+%% \thispagestyle{empty}
+
+\noindent
+\begin{minipage}[l]{.1\textwidth}%
+\noindent
+\includegraphics[width=1.5\textwidth]{logo}
+\end{minipage}
+\hfill
+\begin{minipage}[r]{.75\textwidth}%
+\begin{center}
+{\large \textbf{ TECH FIESTA} \par
+\large Department of Electrical and Electronic Engineering \\[2pt]
+\large {Khulna University of Engineering \& Technology, Khulna} \\[2pt]
+ \par}
+  \vspace{0.5cm}
+\end{center}
+\end{minipage}
+\fbox{\begin{minipage}[l]{.195\textwidth}%
+\noindent
+{\bfseries FRIDAY}\\
+{\footnotesize \today}
+\end{minipage}}
+\par
+\noindent
+\\
+\uline{Time: 3 hour   \hfill MATLAB Mania \hfill        Marks: 60}
+\begin{questions}
+
+\pointsinrightmargin
+\pointsdroppedatright
+\marksnotpoints
+%\marginpointname{mark}
+\pointpoints{mark}{marks}
+\pointformat{\boldmath\themarginpoints}
+\bracketedpoints
+\question[10]
+\label{Q:zbus}
+You are welcome to one of the biggest event hosted by the department of EEE, KUET. The TechFiesta. Before starting this contest, you just have to print one single line saying,\\ {\centering {``Welcome to the TechFiesta $3.0!$"}} \\ {\bfseries Without the quotation marks.}
+\droppoints
+\question[10]
+\label{Q:zbus}
+Lets say you have two complex numbers $Z_1 = (a + bi)$ \& $Z_2 = (c + di)$ in a complex plane, where $x$-axis denotes the real axis and $y$-axis denotes the imaginary axis.\\
+Lets again say, $Z = Z_1 + Z_2$. Now rotate $Z$, $90^{\circ}$ (Counter-Clockwise) about the Origin $(0,0)$. Lets call the new number $Z'$.
+\\Write a function that takes $[a, b, c, d]$ as arguments and then returns the value of $|Z'|$
+
+%Constraint
+\textbf{ Constraints:} [{\footnotesize Your script should work for following Constraints}]
+$$ -10^{18} < \{ a, b, c, d \} < 10^{18}$$
+
+%sample Input_Output
+\textbf{ Sample Input - Output:}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Input} & \textbf{Output}\\
+\hline
+$[1, 0, 2, 0]\ \ $ & $[3]$ \\
+$[1, 1, 2, 2]\ \ $ & $[4.2426]$ \\
+\hline
+\end{tabular}
+\end{center}
+
+%Explanation
+\textbf{Explanation:} \\
+For the first input, $a = 1, b = 0, c = 1, d = 0$:$$Z_1 = 1 + 0*i$$ $$Z_2 = 2 + 0*i$$
+So, $Z = Z_1 + Z_2 = 3 + 0*i$. \\Rotating $Z,\  90^{\circ}$ counter-clockwise we get, $$Z' = 0 + 3*i$$
+so, $|Z'| = \sqrt{0^2 + 3^2} = \textbf {3}$
+\\
+
+\droppoints
+\question[10]
+\label{Q:zbus}
+$$f(x) = ax^3 + bx^2 + cx + d$$
+For any given $a, b, c, d$ the equation $f(x) = 0$ has three solutions. one or more solutions might not be real!\\
+Write a function which takes $[a,b,c,d]$ as arguments and returns the solutions for $x$.\\
+Note that we only want the real solutions.
+\\If no real solution is possible, return an empty object.\\
+%Constraint
+\textbf{ Constraints:} 
+$$ -10^{18} < \{ a, b, c, d \} < 10^{18}$$
+
+%sample Input_Output
+\textbf{ Sample Input - Output:}
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Input} & \textbf{Output}\\
+\hline
+$[1, 0, 0, 0]\ \ $ & $[0]$ \\
+$[1, 2, 3, 4]\ \ $ & $[-1.6506]$ \\
+$[1, -2, -1, 2] \ \ $ & $[1, -1, 2]$ \\
+\hline
+\end{tabular}
+\end{center}
+
+%Explanation
+\textbf{Explanation:} \\
+For the first input, equation: $ x^3 = 0$ \\
+having only one solution $x = 0$ \\
+\\
+For the second input, equation: $x^3 + 2x^3 + 3x + 4 = 0$\\
+It has one real solution and two imaginary. so our ans is $x = -1.6506$\\
+\\
+At last, the last eqn is: $x^3 - 2x^2 - x + 2 = 0$\\
+having three real solution, hence our ans $x = [1, -1, 2]$ 
+\\
+
+\droppoints
+\question[10]
+\label{Q:zbus}
+In the circuit below voltage drop across the inductance $L$ is denoted by $V_L$\\
+\begin{center}
+\includegraphics[scale=0.35]{rl}
+\end{center}
+\newpage
+Given the values of $E$ and $R3$, find:
+\begin{enumerate}
+\item[a)] $V_L$, immediately after closing the switch $(s)$
+\item[b)] $V_L$, after the switch $(s)$ has been closed for a very long time.
+\item[c)] $V_L$, immediately after opening the switch $(s)$
+\item[d)] $V_L$, after the switch $(s)$ has been opened for a very long time. 
+\end{enumerate} 
+%Constraint
+\textbf{ Constraints:} 
+$$ -1000 \leq \{ E, R3 \} \leq 1000$$
+
+%sample Input_Output
+\textbf{ Sample Input - Output:}\\
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Input} & \textbf{Output}\\
+\hline
+$[10, 4]\ \ $ & $[5, 0, 6, 0]$ \\
+\hline
+\end{tabular}
+\end{center}
+
+%Explanation
+\textbf{Explanation:} \\
+Solve the circuit, and you will find that, $V_L$ values in $4$ different conditions will be $5$, $0$, $6$ and $0$ respectively.
+\\
+\droppoints
+\question[10]
+\label{Q:zbus}
+Lets say you have a set of $n$ points in the plane ($n >= 2$). So,
+$$S = \{P_1,\ P_2,\ P_3,\ ....,\ P_n\}$$ No three points are col-linear. Now you will choose one point $P$ ($P \in S$) and draw a line $L$ through it. Then the following processes continues indefinitely.
+\begin{enumerate}
+\item The line $L$ rotates clockwise about the point $P$ until the first time that the line meets some other point belonging to $S$.
+\item This new point $Q$, takes over as the new pivot, and the line now rotates clockwise about $Q$, until it meets another point of $S$.
+\item Then the new point takes over as the new pivot and the line continues its rotation.
+\end{enumerate}
+For this continuous process, it is guaranteed that you can always find such a point $P$ and such a line $L$ going through $P$ so that the line uses every point of $S$ as a pivot infinitely many times.\\
+
+Your task is to write a function which will take a ($n \times 2$) matrix  $
+\begin{bmatrix}
+P_{1_x} & P_{1_y}\\
+P_{2_x} & P_{2_y}\\
+. & .\\
+P_{n_x} & P_{n_y}
+\end{bmatrix}
+$  denoting $n$ points  and return a ($1 \times 2$) matrix  $
+\begin{bmatrix}
+P_x & P_y
+\end{bmatrix}
+$  denoting such a point $P$.
+
+%Constraint
+\textbf{ Constraints:} 
+$$ 2 \leq \{ n \} \leq 10^6$$
+\newpage
+%sample Input_Output
+\textbf{ Sample Input - Output:}\\
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Input} & \textbf{Output}\\
+\hline
+$
+\begin{bmatrix}
+0 & 0\\
+-3 & -2\\
+3 & 1\\
+-2 & 1\\
+3 & -1
+\end{bmatrix}
+$
+ & 
+ 
+$
+\begin{bmatrix}
+0 & 0
+\end{bmatrix}
+$ \\
+\hline
+\end{tabular}
+\end{center}
+
+%Explanation
+\textbf{Explanation:} \\
+For this sample test case, the point is $(0, 0)$. Because if we draw a line $y = x$ , which of course goes through $(0,0)$ and if it continues the process described above, the line will touch every point infinitely many times.
+\\
+\droppoints
+\newpage
+
+\end{questions}
+
+\end{document}
